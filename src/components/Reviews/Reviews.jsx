@@ -8,10 +8,11 @@ export default class Reviews extends Component {
     state = {
         good: 0,
         neutral: 0,
-        bad: 0
+        bad: 0,
+        total: 0
     };
 
-    handleFeedback = (e) => {
+    handleLeaveFeedback = (e) => {
         const feedback = e.target;
         console.log(feedback);
         // this.setState(prevState => ({
