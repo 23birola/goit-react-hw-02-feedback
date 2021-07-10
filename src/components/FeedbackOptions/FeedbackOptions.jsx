@@ -1,17 +1,22 @@
-// import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import css from './FeedbackOptions.module.css';
 
-const FeedbackOptions = ({ feedbackOptions }) => {
+const FeedbackOptions = ({ feedbackOptions, onClick }) => {
     return (
-        <ul className={css.feedback}>Please leave feedback
+        <ul className={css.feedback}>
             {feedbackOptions.map((feedbackOption) =>
-                <li key={feedbackOption}>
-                    <Button feedbackOption={feedbackOption} />
+                <li className={css.feedbackOption} key={feedbackOption}>
+                    <Button feedbackOption={feedbackOption} onClick={onClick} />
                 </li>
             )}
         </ul>
     );
+};
+
+FeedbackOptions.propTypes = {
+    feedbackOptions: PropTypes.array.isRequired,
+    onClick: PropTypes.func.isRequired
 };
 
 export default FeedbackOptions;
